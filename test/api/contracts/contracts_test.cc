@@ -13,7 +13,7 @@ using ::testing::Return;
 
 TEST(ListContracts, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
 
   const ListContractsResponse expected_list_contracts =
       MakeResponse<ListContractsResponse>();
@@ -30,7 +30,7 @@ TEST(ListContracts, ShouldReturnOkWhenNotAuthenticated) {
 
 TEST(GetContractTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_contract = "my-contract";
 
   GetContractResponse expected_get_contract =
@@ -50,7 +50,7 @@ TEST(GetContractTest, ShouldReturnOkWhenNotAuthenticated) {
 
 TEST(AcceptContractTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_contract = "my-contract";
 
   AcceptContractResponse expected_accept_contract =
@@ -71,7 +71,7 @@ TEST(AcceptContractTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(AcceptContractTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_contract = "my-contract";
 
   AcceptContractResponse expected_accept_contract =
@@ -92,7 +92,7 @@ TEST(AcceptContractTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(DeliverContractTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_contract = "my-contract";
 
   DeliverContractResponse expected_deliver_contract =
@@ -113,7 +113,7 @@ TEST(DeliverContractTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(DeliverContractTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_contract = "my-contract";
 
   DeliverContractResponse expected_deliver_contract =
@@ -134,7 +134,7 @@ TEST(DeliverContractTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(FulfillContractTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_contract = "my-contract";
 
   FulfillContractResponse expected_fulfill_contract =
@@ -155,7 +155,7 @@ TEST(FulfillContractTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(FulfillContractTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_contract = "my-contract";
 
   FulfillContractResponse expected_fulfill_contract =

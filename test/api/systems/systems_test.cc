@@ -13,7 +13,7 @@ using ::testing::Return;
 
 TEST(ListSystemsTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
 
   const ListSystemsResponse expected_list_systems =
       MakeResponse<ListSystemsResponse>();
@@ -30,7 +30,7 @@ TEST(ListSystemsTest, ShouldReturnOkWhenNotAuthenticated) {
 
 TEST(GetSystemTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_system = "my-system";
 
   GetSystemResponse expected_get_system = MakeResponse<GetSystemResponse>();
@@ -49,7 +49,7 @@ TEST(GetSystemTest, ShouldReturnOkWhenNotAuthenticated) {
 
 TEST(ListWaypointsTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_system = "my-system";
 
   const ListWaypointsResponse expected_list_waypoints =
@@ -69,7 +69,7 @@ TEST(ListWaypointsTest, ShouldReturnOkWhenNotAuthenticated) {
 
 TEST(GetWaypointTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_system = "my-system";
   const std::string my_waypoint = "my-waypoint";
 
@@ -91,7 +91,7 @@ TEST(GetWaypointTest, ShouldReturnOkWhenNotAuthenticated) {
 
 TEST(GetMarketTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_system = "my-system";
   const std::string my_waypoint = "my-waypoint";
 
@@ -113,7 +113,7 @@ TEST(GetMarketTest, ShouldReturnOkWhenNotAuthenticated) {
 
 TEST(GetShipyardTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_system = "my-system";
   const std::string my_waypoint = "my-waypoint";
 
@@ -135,7 +135,7 @@ TEST(GetShipyardTest, ShouldReturnOkWhenNotAuthenticated) {
 
 TEST(GetJumpGateTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_system = "my-system";
   const std::string my_waypoint = "my-waypoint";
 

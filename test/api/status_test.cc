@@ -13,7 +13,7 @@ using ::testing::Return;
 
 TEST(StatusTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
 
   const StatusResponse expected_status = MakeResponse<StatusResponse>();
   httplib::Result expected_result = MakeResultOk(expected_status);

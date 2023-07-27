@@ -13,7 +13,7 @@ using ::testing::Return;
 
 TEST(MyAgentTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
 
   const MyAgentResponse expected_my_agent = MakeResponse<MyAgentResponse>();
   httplib::Result expected_result = MakeResultOk(expected_my_agent);
@@ -29,7 +29,7 @@ TEST(MyAgentTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(MyAgentTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
 
   const MyAgentResponse expected_my_agent = MakeResponse<MyAgentResponse>();
   httplib::Result expected_result = MakeResultErr(kHttpUnauthorizedStatus);

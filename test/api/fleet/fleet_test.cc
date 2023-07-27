@@ -13,7 +13,7 @@ using ::testing::Return;
 
 TEST(ListShipsTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
 
   const ListShipsResponse expected_list_ships =
       MakeResponse<ListShipsResponse>();
@@ -30,7 +30,7 @@ TEST(ListShipsTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(ListShipsTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
 
   const ListShipsResponse expected_list_ships =
       MakeResponse<ListShipsResponse>();
@@ -47,7 +47,7 @@ TEST(ListShipsTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(PurchaseShipTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
 
   const PurchaseShipResponse expected_purchase_ship =
       MakeResponse<PurchaseShipResponse>();
@@ -65,7 +65,7 @@ TEST(PurchaseShipTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(PurchaseShipTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
 
   const PurchaseShipResponse expected_purchase_ship =
       MakeResponse<PurchaseShipResponse>();
@@ -83,7 +83,7 @@ TEST(PurchaseShipTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(GetShipTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   GetShipResponse expected_get_ship = MakeResponse<GetShipResponse>();
@@ -102,7 +102,7 @@ TEST(GetShipTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(GetShipTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const GetShipResponse expected_get_ship = MakeResponse<GetShipResponse>();
@@ -120,7 +120,7 @@ TEST(GetShipTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(GetShipCargoTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const GetShipCargoResponse expected_get_ship_cargo =
@@ -140,7 +140,7 @@ TEST(GetShipCargoTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(GetShipCargoTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const GetShipCargoResponse expected_get_ship_cargo =
@@ -160,7 +160,7 @@ TEST(GetShipCargoTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(OrbitShipTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const OrbitShipResponse expected_orbit_ship =
@@ -179,7 +179,7 @@ TEST(OrbitShipTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(OrbitShipTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const OrbitShipResponse expected_orbit_ship =
@@ -198,7 +198,7 @@ TEST(OrbitShipTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(ShipRefineTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const ShipRefineResponse expected_ship_refine =
@@ -217,7 +217,7 @@ TEST(ShipRefineTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(ShipRefineTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const ShipRefineResponse expected_ship_refine =
@@ -236,7 +236,7 @@ TEST(ShipRefineTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(CreateChartTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const CreateChartResponse expected_create_chart =
@@ -255,7 +255,7 @@ TEST(CreateChartTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(CreateChartTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const CreateChartResponse expected_create_chart =
@@ -274,7 +274,7 @@ TEST(CreateChartTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(GetShipCooldownTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const GetShipCooldownResponse expected_get_ship_cooldown =
@@ -294,7 +294,7 @@ TEST(GetShipCooldownTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(GetShipCooldownTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const GetShipCooldownResponse expected_get_ship_cooldown =
@@ -314,7 +314,7 @@ TEST(GetShipCooldownTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(DockShipTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const DockShipResponse expected_dock_ship = MakeResponse<DockShipResponse>();
@@ -332,7 +332,7 @@ TEST(DockShipTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(DockShipTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const DockShipResponse expected_dock_ship = MakeResponse<DockShipResponse>();
@@ -350,7 +350,7 @@ TEST(DockShipTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(CreateSurveyTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const CreateSurveyResponse expected_create_survey =
@@ -370,7 +370,7 @@ TEST(CreateSurveyTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(CreateSurveyTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const CreateSurveyResponse expected_create_survey =
@@ -390,7 +390,7 @@ TEST(CreateSurveyTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(ExtractResourcesTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const ExtractResourcesResponse expected_extract_resources =
@@ -410,7 +410,7 @@ TEST(ExtractResourcesTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(ExtractResourcesTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const ExtractResourcesResponse expected_extract_resources =
@@ -430,7 +430,7 @@ TEST(ExtractResourcesTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(JettisonCargoTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const JettisonCargoResponse expected_jettison_cargo =
@@ -450,7 +450,7 @@ TEST(JettisonCargoTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(JettisonCargoTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const JettisonCargoResponse expected_jettison_cargo =
@@ -470,7 +470,7 @@ TEST(JettisonCargoTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(JumpShipTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const JumpShipResponse expected_jump_ship = MakeResponse<JumpShipResponse>();
@@ -488,7 +488,7 @@ TEST(JumpShipTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(JumpShipTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const JumpShipResponse expected_jump_ship = MakeResponse<JumpShipResponse>();
@@ -506,7 +506,7 @@ TEST(JumpShipTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(NavigateShipTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const NavigateShipResponse expected_navigate_ship =
@@ -526,7 +526,7 @@ TEST(NavigateShipTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(NavigateShipTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const NavigateShipResponse expected_navigate_ship =
@@ -546,7 +546,7 @@ TEST(NavigateShipTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(PatchShipNavTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const PatchShipNavResponse expected_patch_ship_nav =
@@ -566,7 +566,7 @@ TEST(PatchShipNavTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(PatchShipNavTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const PatchShipNavResponse expected_jump_ship =
@@ -586,7 +586,7 @@ TEST(PatchShipNavTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(GetShipNavTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const GetShipNavResponse expected_get_ship_nav =
@@ -605,7 +605,7 @@ TEST(GetShipNavTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(GetShipNavTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const GetShipNavResponse expected_get_ship_nav =
@@ -624,7 +624,7 @@ TEST(GetShipNavTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(WarpShipTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const WarpShipResponse expected_warp_ship = MakeResponse<WarpShipResponse>();
@@ -642,7 +642,7 @@ TEST(WarpShipTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(WarpShipTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const WarpShipResponse expected_warp_ship = MakeResponse<WarpShipResponse>();
@@ -660,7 +660,7 @@ TEST(WarpShipTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(SellCargoTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const SellCargoResponse expected_sell_cargo =
@@ -679,7 +679,7 @@ TEST(SellCargoTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(SellCargoTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const SellCargoResponse expected_sell_cargo =
@@ -698,7 +698,7 @@ TEST(SellCargoTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(ScanSystemsTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const ScanSystemsResponse expected_scan_systems =
@@ -717,7 +717,7 @@ TEST(ScanSystemsTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(ScanSystemsTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const ScanSystemsResponse expected_scan_systems =
@@ -736,7 +736,7 @@ TEST(ScanSystemsTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(ScanWaypointsTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const ScanWaypointsResponse expected_scan_waypoints =
@@ -756,7 +756,7 @@ TEST(ScanWaypointsTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(ScanWaypointsTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const ScanWaypointsResponse expected_scan_waypoints =
@@ -776,7 +776,7 @@ TEST(ScanWaypointsTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(ScanShipsTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const ScanShipsResponse expected_scan_ships =
@@ -795,7 +795,7 @@ TEST(ScanShipsTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(ScanShipsTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const ScanShipsResponse expected_scan_ships =
@@ -814,7 +814,7 @@ TEST(ScanShipsTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(RefuelShipTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const RefuelShipResponse expected_refuel_ship =
@@ -833,7 +833,7 @@ TEST(RefuelShipTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(RefuelShipTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const RefuelShipResponse expected_refuel_ship =
@@ -852,7 +852,7 @@ TEST(RefuelShipTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(PurchaseCargoTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const PurchaseCargoResponse expected_purchase_cargo =
@@ -872,7 +872,7 @@ TEST(PurchaseCargoTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(PurchaseCargoTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const PurchaseCargoResponse expected_purchase_cargo =
@@ -892,7 +892,7 @@ TEST(PurchaseCargoTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(TransferCargoTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const TransferCargoResponse expected_transfer_cargo =
@@ -912,7 +912,7 @@ TEST(TransferCargoTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(TransferCargoTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const TransferCargoResponse expected_transfer_cargo =
@@ -932,7 +932,7 @@ TEST(TransferCargoTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(NegotiateContractTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const NegotiateContractResponse expected_negotiate_contract =
@@ -953,7 +953,7 @@ TEST(NegotiateContractTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(NegotiateContractTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const NegotiateContractResponse expected_negotiate_contract =
@@ -974,7 +974,7 @@ TEST(NegotiateContractTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(GetMountsTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-string";
 
   const GetMountsResponse expected_get_mounts =
@@ -993,7 +993,7 @@ TEST(GetMountsTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(GetMountsTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-string";
 
   const GetMountsResponse expected_get_mounts =
@@ -1012,7 +1012,7 @@ TEST(GetMountsTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(InstallMountTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const InstallMountResponse expected_install_mount =
@@ -1032,7 +1032,7 @@ TEST(InstallMountTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(InstallMountTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const InstallMountResponse expected_install_mount =
@@ -1052,7 +1052,7 @@ TEST(InstallMountTest, ShouldReturnErrWhenNotAuthenticated) {
 
 TEST(RemoveMountTest, ShouldReturnOkWhenAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client, kToken);
+  Session session(mock_client, kToken);
   const std::string my_ship = "my-ship";
 
   const RemoveMountResponse expected_remove_mount =
@@ -1071,7 +1071,7 @@ TEST(RemoveMountTest, ShouldReturnOkWhenAuthenticated) {
 
 TEST(RemoveMountTest, ShouldReturnErrWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_ship = "my-ship";
 
   const RemoveMountResponse expected_remove_mount =

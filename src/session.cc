@@ -1,5 +1,4 @@
 #include "space_traders_cpp/session.h"
-
 #include "space_traders_cpp/client.h"
 #include "space_traders_cpp/utility.h"
 
@@ -53,100 +52,100 @@ Result<RegisterResponse, RequestError> Session::Register(
 }
 
 Result<MyAgentResponse, RequestError> Session::MyAgent(
-    const MyAgentRequest& req) const {
+    const MyAgentRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthGet(req);
   return ResponseBodyOrError<MyAgentResponse>(result);
 }
 
 Result<ListContractsResponse, RequestError> Session::ListContracts(
-    const ListContractsRequest& req) const {
+    const ListContractsRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthGet(req);
   return ResponseBodyOrError<ListContractsResponse>(result);
 }
 Result<GetContractResponse, RequestError> Session::GetContract(
-    const GetContractRequest& req) const {
+    const GetContractRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthGet(req);
   return ResponseBodyOrError<GetContractResponse>(result);
 }
 Result<AcceptContractResponse, RequestError> Session::AcceptContract(
-    const AcceptContractRequest& req) const {
+    const AcceptContractRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<AcceptContractResponse>(result);
 }
 Result<DeliverContractResponse, RequestError> Session::DeliverContract(
-    const DeliverContractRequest& req) const {
+    const DeliverContractRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<DeliverContractResponse>(result);
 }
 Result<FulfillContractResponse, RequestError> Session::FulfillContract(
-    const FulfillContractRequest& req) const {
+    const FulfillContractRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<FulfillContractResponse>(result);
 }
 
 Result<ListFactionsResponse, RequestError> Session::ListFactions(
-    const ListFactionsRequest& req) const {
+    const ListFactionsRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeGet(req);
   return ResponseBodyOrError<ListFactionsResponse>(result);
 }
 Result<GetFactionResponse, RequestError> Session::GetFaction(
-    const GetFactionRequest& req) const {
+    const GetFactionRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeGet(req);
   return ResponseBodyOrError<GetFactionResponse>(result);
 }
 
 Result<ListShipsResponse, RequestError> Session::ListShips(
-    const ListShipsRequest& req) const {
+    const ListShipsRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthGet(req);
   return ResponseBodyOrError<ListShipsResponse>(result);
 }
 Result<PurchaseShipResponse, RequestError> Session::PurchaseShip(
-    const PurchaseShipRequest& req) const {
+    const PurchaseShipRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<PurchaseShipResponse>(result);
 }
 Result<GetShipResponse, RequestError> Session::GetShip(
-    const GetShipRequest& req) const {
+    const GetShipRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthGet(req);
   return ResponseBodyOrError<GetShipResponse>(result);
 }
 Result<GetShipCargoResponse, RequestError> Session::GetShipCargo(
-    const GetShipCargoRequest& req) const {
+    const GetShipCargoRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthGet(req);
   return ResponseBodyOrError<GetShipCargoResponse>(result);
 }
 Result<OrbitShipResponse, RequestError> Session::OrbitShip(
-    const OrbitShipRequest& req) const {
+    const OrbitShipRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<OrbitShipResponse>(result);
 }
 Result<ShipRefineResponse, RequestError> Session::ShipRefine(
-    const ShipRefineRequest& req) const {
+    const ShipRefineRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<ShipRefineResponse>(result);
 }
 Result<CreateChartResponse, RequestError> Session::CreateChart(
-    const CreateChartRequest& req) const {
+    const CreateChartRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<CreateChartResponse>(result);
 }
 Result<GetShipCooldownResponse, RequestError> Session::GetShipCooldown(
-    const GetShipCooldownRequest& req) const {
+    const GetShipCooldownRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthGet(req);
   // Special case with two valid response status
@@ -162,121 +161,121 @@ Result<GetShipCooldownResponse, RequestError> Session::GetShipCooldown(
   return Ok(response);
 }
 Result<DockShipResponse, RequestError> Session::DockShip(
-    const DockShipRequest& req) const {
+    const DockShipRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<DockShipResponse>(result);
 }
 Result<CreateSurveyResponse, RequestError> Session::CreateSurvey(
-    const CreateSurveyRequest& req) const {
+    const CreateSurveyRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<CreateSurveyResponse>(result);
 }
 Result<ExtractResourcesResponse, RequestError> Session::ExtractResources(
-    const ExtractResourcesRequest& req) const {
+    const ExtractResourcesRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<ExtractResourcesResponse>(result);
 }
 Result<JettisonCargoResponse, RequestError> Session::JettisonCargo(
-    const JettisonCargoRequest& req) const {
+    const JettisonCargoRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<JettisonCargoResponse>(result);
 }
 Result<JumpShipResponse, RequestError> Session::JumpShip(
-    const JumpShipRequest& req) const {
+    const JumpShipRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<JumpShipResponse>(result);
 }
 Result<NavigateShipResponse, RequestError> Session::NavigateShip(
-    const NavigateShipRequest& req) const {
+    const NavigateShipRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<NavigateShipResponse>(result);
 }
 Result<PatchShipNavResponse, RequestError> Session::PatchShipNav(
-    const PatchShipNavRequest& req) const {
+    const PatchShipNavRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPatch(req);
   return ResponseBodyOrError<PatchShipNavResponse>(result);
 }
 Result<GetShipNavResponse, RequestError> Session::GetShipNav(
-    const GetShipNavRequest& req) const {
+    const GetShipNavRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthGet(req);
   return ResponseBodyOrError<GetShipNavResponse>(result);
 }
 Result<WarpShipResponse, RequestError> Session::WarpShip(
-    const WarpShipRequest& req) const {
+    const WarpShipRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<WarpShipResponse>(result);
 }
 Result<SellCargoResponse, RequestError> Session::SellCargo(
-    const SellCargoRequest& req) const {
+    const SellCargoRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<SellCargoResponse>(result);
 }
 Result<ScanSystemsResponse, RequestError> Session::ScanSystems(
-    const ScanSystemsRequest& req) const {
+    const ScanSystemsRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<ScanSystemsResponse>(result);
 }
 Result<ScanWaypointsResponse, RequestError> Session::ScanWaypoints(
-    const ScanWaypointsRequest& req) const {
+    const ScanWaypointsRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<ScanWaypointsResponse>(result);
 }
 Result<ScanShipsResponse, RequestError> Session::ScanShips(
-    const ScanShipsRequest& req) const {
+    const ScanShipsRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<ScanShipsResponse>(result);
 }
 Result<RefuelShipResponse, RequestError> Session::RefuelShip(
-    const RefuelShipRequest& req) const {
+    const RefuelShipRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<RefuelShipResponse>(result);
 }
 Result<PurchaseCargoResponse, RequestError> Session::PurchaseCargo(
-    const PurchaseCargoRequest& req) const {
+    const PurchaseCargoRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<PurchaseCargoResponse>(result);
 }
 Result<TransferCargoResponse, RequestError> Session::TransferCargo(
-    const TransferCargoRequest& req) const {
+    const TransferCargoRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<TransferCargoResponse>(result);
 }
 Result<NegotiateContractResponse, RequestError> Session::NegotiateContract(
-    const NegotiateContractRequest& req) const {
+    const NegotiateContractRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<NegotiateContractResponse>(result);
 }
 Result<GetMountsResponse, RequestError> Session::GetMounts(
-    const GetMountsRequest& req) const {
+    const GetMountsRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthGet(req);
   return ResponseBodyOrError<GetMountsResponse>(result);
 }
 Result<InstallMountResponse, RequestError> Session::InstallMount(
-    const InstallMountRequest& req) const {
+    const InstallMountRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<InstallMountResponse>(result);
 }
 Result<RemoveMountResponse, RequestError> Session::RemoveMount(
-    const RemoveMountRequest& req) const {
+    const RemoveMountRequest& req) {
   rate_limiter_.rl_wait();
   const httplib::Result result = MakeAuthPost(req);
   return ResponseBodyOrError<RemoveMountResponse>(result);

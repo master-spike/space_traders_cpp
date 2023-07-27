@@ -13,7 +13,7 @@ using ::testing::Return;
 
 TEST(RegisterTest, ShouldReturnOkWhenSymbolNotInUse) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_symbol = "my-symbol";
   const std::string faction_symbol = "COSMIC";
 
@@ -33,7 +33,7 @@ TEST(RegisterTest, ShouldReturnOkWhenSymbolNotInUse) {
 
 TEST(RegisterTest, ShouldReturnErrWhenSymbolAlreadyInUse) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_symbol = "my-symbol";
   const std::string faction_symbol = "COSMIC";
 

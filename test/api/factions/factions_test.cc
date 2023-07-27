@@ -13,7 +13,7 @@ using ::testing::Return;
 
 TEST(ListFactionsTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
 
   const ListFactionsResponse expected_list_factions =
       MakeResponse<ListFactionsResponse>();
@@ -30,7 +30,7 @@ TEST(ListFactionsTest, ShouldReturnOkWhenNotAuthenticated) {
 
 TEST(GetFactionTest, ShouldReturnOkWhenNotAuthenticated) {
   const auto mock_client = std::make_shared<MockClient>();
-  const Session session(mock_client);
+  Session session(mock_client);
   const std::string my_faction = "my-faction";
 
   GetFactionResponse expected_get_faction = MakeResponse<GetFactionResponse>();
