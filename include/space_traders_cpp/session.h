@@ -49,6 +49,7 @@
 #include "space_traders_cpp/api/systems/list_waypoints.h"
 #include "space_traders_cpp/i_client.h"
 #include "space_traders_cpp/utility.h"
+#include "space_traders_cpp/ratelimiter.h"
 
 struct LoginRequest {
  public:
@@ -75,106 +76,112 @@ class Session {
   explicit Session(const std::shared_ptr<IClient> client);
   explicit Session(const std::shared_ptr<IClient> client,
                    const std::string token);
+  explicit Session(const int rate_limit); // in milliseconds
+  explicit Session(const std::string token, const int rate_limit);
+  explicit Session(const std::shared_ptr<IClient> client, const int rate_limit);
+  explicit Session(const std::shared_ptr<IClient> client,
+                   const std::string token, const int rate_limit);
 
-  bool IsAPIOnline() const;
-  bool IsLoggedIn() const;
+
+  bool IsAPIOnline();
+  bool IsLoggedIn();
 
   Result<MyAgentResponse, RequestError> Login(const LoginRequest& req);
 
-  Result<StatusResponse, RequestError> Status(const StatusRequest& req) const;
+  Result<StatusResponse, RequestError> Status(const StatusRequest& req);
   Result<RegisterResponse, RequestError> Register(
-      const RegisterRequest& req) const;
+      const RegisterRequest& req);
 
   Result<MyAgentResponse, RequestError> MyAgent(
-      const MyAgentRequest& req) const;
+      const MyAgentRequest& req);
 
   Result<ListContractsResponse, RequestError> ListContracts(
-      const ListContractsRequest& req) const;
+      const ListContractsRequest& req);
   Result<GetContractResponse, RequestError> GetContract(
-      const GetContractRequest& req) const;
+      const GetContractRequest& req);
   Result<AcceptContractResponse, RequestError> AcceptContract(
-      const AcceptContractRequest& req) const;
+      const AcceptContractRequest& req);
   Result<DeliverContractResponse, RequestError> DeliverContract(
-      const DeliverContractRequest& req) const;
+      const DeliverContractRequest& req);
   Result<FulfillContractResponse, RequestError> FulfillContract(
-      const FulfillContractRequest& req) const;
+      const FulfillContractRequest& req);
 
   Result<ListFactionsResponse, RequestError> ListFactions(
-      const ListFactionsRequest& req) const;
+      const ListFactionsRequest& req);
   Result<GetFactionResponse, RequestError> GetFaction(
-      const GetFactionRequest& req) const;
+      const GetFactionRequest& req);
 
   Result<ListShipsResponse, RequestError> ListShips(
-      const ListShipsRequest& req) const;
+      const ListShipsRequest& req);
   Result<PurchaseShipResponse, RequestError> PurchaseShip(
-      const PurchaseShipRequest& req) const;
+      const PurchaseShipRequest& req);
   Result<GetShipResponse, RequestError> GetShip(
-      const GetShipRequest& req) const;
+      const GetShipRequest& req);
   Result<GetShipCargoResponse, RequestError> GetShipCargo(
-      const GetShipCargoRequest& req) const;
+      const GetShipCargoRequest& req);
   Result<OrbitShipResponse, RequestError> OrbitShip(
-      const OrbitShipRequest& req) const;
+      const OrbitShipRequest& req);
   Result<ShipRefineResponse, RequestError> ShipRefine(
-      const ShipRefineRequest& req) const;
+      const ShipRefineRequest& req);
   Result<CreateChartResponse, RequestError> CreateChart(
-      const CreateChartRequest& req) const;
+      const CreateChartRequest& req);
   Result<GetShipCooldownResponse, RequestError> GetShipCooldown(
-      const GetShipCooldownRequest& req) const;
+      const GetShipCooldownRequest& req);
   Result<DockShipResponse, RequestError> DockShip(
-      const DockShipRequest& req) const;
+      const DockShipRequest& req);
   Result<CreateSurveyResponse, RequestError> CreateSurvey(
-      const CreateSurveyRequest& req) const;
+      const CreateSurveyRequest& req);
   Result<ExtractResourcesResponse, RequestError> ExtractResources(
-      const ExtractResourcesRequest& req) const;
+      const ExtractResourcesRequest& req);
   Result<JettisonCargoResponse, RequestError> JettisonCargo(
-      const JettisonCargoRequest& req) const;
+      const JettisonCargoRequest& req);
   Result<JumpShipResponse, RequestError> JumpShip(
-      const JumpShipRequest& req) const;
+      const JumpShipRequest& req);
   Result<NavigateShipResponse, RequestError> NavigateShip(
-      const NavigateShipRequest& req) const;
+      const NavigateShipRequest& req);
   Result<PatchShipNavResponse, RequestError> PatchShipNav(
-      const PatchShipNavRequest& req) const;
+      const PatchShipNavRequest& req);
   Result<GetShipNavResponse, RequestError> GetShipNav(
-      const GetShipNavRequest& req) const;
+      const GetShipNavRequest& req);
   Result<WarpShipResponse, RequestError> WarpShip(
-      const WarpShipRequest& req) const;
+      const WarpShipRequest& req);
   Result<SellCargoResponse, RequestError> SellCargo(
-      const SellCargoRequest& req) const;
+      const SellCargoRequest& req);
   Result<ScanSystemsResponse, RequestError> ScanSystems(
-      const ScanSystemsRequest& req) const;
+      const ScanSystemsRequest& req);
   Result<ScanWaypointsResponse, RequestError> ScanWaypoints(
-      const ScanWaypointsRequest& req) const;
+      const ScanWaypointsRequest& req);
   Result<ScanShipsResponse, RequestError> ScanShips(
-      const ScanShipsRequest& req) const;
+      const ScanShipsRequest& req);
   Result<RefuelShipResponse, RequestError> RefuelShip(
-      const RefuelShipRequest& req) const;
+      const RefuelShipRequest& req);
   Result<PurchaseCargoResponse, RequestError> PurchaseCargo(
-      const PurchaseCargoRequest& req) const;
+      const PurchaseCargoRequest& req);
   Result<TransferCargoResponse, RequestError> TransferCargo(
-      const TransferCargoRequest& req) const;
+      const TransferCargoRequest& req);
   Result<NegotiateContractResponse, RequestError> NegotiateContract(
-      const NegotiateContractRequest& req) const;
+      const NegotiateContractRequest& req);
   Result<GetMountsResponse, RequestError> GetMounts(
-      const GetMountsRequest& req) const;
+      const GetMountsRequest& req);
   Result<InstallMountResponse, RequestError> InstallMount(
-      const InstallMountRequest& req) const;
+      const InstallMountRequest& req);
   Result<RemoveMountResponse, RequestError> RemoveMount(
-      const RemoveMountRequest& req) const;
+      const RemoveMountRequest& req);
 
   Result<ListSystemsResponse, RequestError> ListSystems(
-      const ListSystemsRequest& req) const;
+      const ListSystemsRequest& req);
   Result<GetSystemResponse, RequestError> GetSystem(
-      const GetSystemRequest& req) const;
+      const GetSystemRequest& req);
   Result<ListWaypointsResponse, RequestError> ListWaypoints(
-      const ListWaypointsRequest& req) const;
+      const ListWaypointsRequest& req);
   Result<GetWaypointResponse, RequestError> GetWaypoint(
-      const GetWaypointRequest& req) const;
+      const GetWaypointRequest& req);
   Result<GetMarketResponse, RequestError> GetMarket(
-      const GetMarketRequest& req) const;
+      const GetMarketRequest& req);
   Result<GetShipyardResponse, RequestError> GetShipyard(
-      const GetShipyardRequest& req) const;
+      const GetShipyardRequest& req);
   Result<GetJumpGateResponse, RequestError> GetJumpGate(
-      const GetJumpGateRequest& req) const;
+      const GetJumpGateRequest& req);
 
  private:
   template <typename R>
@@ -248,4 +255,5 @@ class Session {
   std::string token_;
   std::shared_ptr<IClient> client_;
   static const std::string kBasePath;
+  RateLimiter rate_limiter_;
 };
